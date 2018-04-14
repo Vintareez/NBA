@@ -1,0 +1,45 @@
+<div class="InfoWrapper">
+    <ul *ngFor="let player of players | paginator : pageEvent.pageIndex : pageSize">
+        <li >
+            <div  class="InfoSquare" >
+                <div (click)="openModal(player)" class="Photo">
+                    <img class="headshots"  src= {{player.img_str}} alt="" (load)="loadSpin(Spinner)">
+                   <div class="Spinner" #Spinner><mat-spinner></mat-spinner></div>
+                </div>
+                <div (click)="openModal(player)" class="Info">
+                    <h5>{{player.name}} </h5>
+                    <h6>{{player.team_name}}</h6>
+                    <div class="StatWrap">
+                        <div class="Statline">
+                            <div class="stat">Games played: {{player.games_played}}</div>
+                            <div class="stat">Points per game: {{player.points_per_game}}</div>
+                        </div>
+                        <div class="Statline">
+                            <div class="stat">Rebounds per game: {{player.rebounds_per_game}}</div>
+                            <div class="stat">Assists per game: {{player.assists_per_game}}</div>   
+                        </div>
+                        <div class="Statline">
+                            <div class="stat">Free throw %: {{player.free_throw_percentage}}</div>
+                            <div class="stat">3-Point %: {{player.three_point_percentage}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="FavoriteBtnWrapper">
+                    <mat-icon *ngIf="player.favorite_status;else gray" color = "warn" class="FavoriteBtn" (click)="SelectFavorite(player)">favorite</mat-icon>
+                    <ng-template #gray><mat-icon color = "accent" class="FavoriteBtn" (click)="SelectFavorite(player)">favorite</mat-icon></ng-template>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<mat-paginator 
+    id="pagfav"
+    class="Pagination" 
+    *ngIf="players.length" 
+    [length]="players.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event"
+></mat-paginator>
+<h4 *ngIf="!players.length" class="empty" >Favorite list is empty</h4>
+

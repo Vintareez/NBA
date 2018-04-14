@@ -1,0 +1,55 @@
+<div  class="InfoSquare" >
+    <div class="Photo">
+        <img class="headshots"  src= {{data.img_str}} alt="">
+    </div>
+    <div mat-dialog-content  class="Info">
+        <h5>{{data.name}} </h5>
+        <h6>{{data.team_name}}</h6>
+        <div class="StatWrap">
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Games played" [matTooltipPosition]="position" >G: {{data.games_played}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Points per game" [matTooltipPosition]="position">PS/G: {{data.points_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Minutes per game" [matTooltipPosition]="position">MP: {{data.minutes_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Efficiency rating" [matTooltipPosition]="position">ER: {{data.player_efficiency_rating}}</div>
+            </div>
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Field goals per game" [matTooltipPosition]="position">FG: {{data.field_goals_made_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Field goals attempted per game" [matTooltipPosition]="position">FGA: {{data.field_goals_attempted_per_game}}</div> 
+                <div class="stat example-tooltip-host" matTooltip="Field goals %" [matTooltipPosition]="position">FG%: {{data.field_goal_percentage}}</div> 
+            </div>
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Three point per game" [matTooltipPosition]="position">3P: {{data.three_point_made_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Three point attempted per game" [matTooltipPosition]="position">3PA: {{data.three_point_attempted_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Three point %" [matTooltipPosition]="position">3P%: {{data.three_point_percentage}}</div>   
+            </div>
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Free throw per game" [matTooltipPosition]="position">FT: {{data.free_throw_made_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Free throw attempted per game" [matTooltipPosition]="position">FTA: {{data.free_throw__attempted_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Free throw %" [matTooltipPosition]="position">FT%: {{data.free_throw_percentage}}</div>  
+            </div>
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Offensive rebounds per game" [matTooltipPosition]="position">ORB: {{data.offensive_rebounds_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Defensive rebounds per game" [matTooltipPosition]="position">DRB: {{data.defensive_rebounds_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Total rebounds per game" [matTooltipPosition]="position">TRB: {{data.rebounds_per_game}}</div>
+            </div>
+            <div class="Statcol">
+                <div class="stat example-tooltip-host" matTooltip="Assists per game" [matTooltipPosition]="position">AST: {{data.assists_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Steals per game" [matTooltipPosition]="position">STL: {{data.steals_per_game}}</div> 
+                <div class="stat example-tooltip-host" matTooltip="Blocks per game" [matTooltipPosition]="position">BLK: {{data.blocks_per_game}}</div>
+                <div class="stat example-tooltip-host" matTooltip="Turnovers per game" [matTooltipPosition]="position">TOV: {{data.turnovers_per_game}}</div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="FavoriteBtnWrapper">
+        <button mat-icon-button (click)="closeModal()" >
+            <mat-icon color="accent">close</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon color="accent">edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon *ngIf="data.favorite_status;else gray" color = "warn" class="FavoriteBtn" (click)="SelectFavorite(data)">favorite</mat-icon>
+            <ng-template #gray><mat-icon color = "accent" class="FavoriteBtn" (click)="SelectFavorite(data)">favorite</mat-icon></ng-template>
+        </button>
+    </div>
+</div>

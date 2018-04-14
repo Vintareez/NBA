@@ -1,0 +1,104 @@
+
+.InfoWrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    
+}
+.InfoWrapper ul{
+    list-style-type: none;
+    margin-left: 0px;
+    margin-bottom: 20px;
+}
+.InfoSquare{
+    box-shadow: 0 3px 5px rgba(87, 86, 86, 0.5);
+    width: 360px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.FavoriteBtnWrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 10%;
+}
+.Photo{
+    height: 45%;
+    background-color:  #bec0c2;
+    text-align: center;
+}
+.Info{
+    height: 45%;
+    padding: 0px 10px;
+    vertical-align: middle;
+}
+.StatWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.Statline{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.stat{
+    font-size: 13px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+p {
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.Info h6{
+    margin-bottom: 10px;
+    margin-top: 1px;
+    font-size: 15px;
+    text-align: center;
+}
+.Info h5{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 18px;
+    font: bold;
+    text-align: center;
+}
+.FavoriteBtn{
+    margin-right: 10px;
+}
+.headshots{
+    height: 100%;
+}
+.Pagination{
+    margin-top: 0px;
+}
+.FavoriteBtn, .Info, .Photo:hover{
+    cursor: pointer;
+}
+.Spinner{
+    position: relative;
+    margin-top: -110px;
+    margin-left: 127px;
+}
+.deactive-spinner{
+    display:none;
+}
+.empty {
+    text-align: center;
+}
+.ProgressBar{
+    width: 94%;
+    margin-left: 39px;
+}
+#pagfav{
+    position: absolute;
+    top: 91%;
+    left: 72%;
+}

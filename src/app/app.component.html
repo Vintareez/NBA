@@ -1,0 +1,46 @@
+<header>
+    <div class="container">
+        <div class="Navbar">
+            <div class="ButtonsWrapper">
+                <div class="left">
+                    <div class="MenuWrap">
+                        <button class="MenuBtn" mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon [color]="color">menu</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <span>Top by game played</span>
+                            </button>
+                            <button mat-menu-item>
+                                <span>Top by PPG</span>
+                            </button>
+                            <button mat-menu-item>
+                                <span>Top by free throw</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                    <div>
+                        <img (click)="toHome()" class="logo" src="../assets/logo.png" alt="#">
+                    </div>
+                    <div class="Stats">Stats</div>
+                </div>
+                <div class="right">
+                    <div>
+                        <img class="FavoriteImg" (click)="openFavorite()" src="../assets/favorite2.png" alt="">
+                    </div>
+                    <div class="team">Teams</div>
+                    <mat-slide-toggle
+                        (change)="ChangeToggle($event)"
+                        [color]="color"
+                        [checked]="checked"
+                        [disabled]="disabled">
+                    </mat-slide-toggle>
+                    <div class="players">Players</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<router-outlet></router-outlet>
+  
+
