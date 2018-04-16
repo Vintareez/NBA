@@ -27,14 +27,6 @@ export class TeamPlayersComponent implements OnInit {
     private activateRoute: ActivatedRoute, private render: Renderer2){
       this.teamname =  activateRoute.snapshot.params['abbr'];
     }
-
-  paginationFrom(pageEvent:PageEvent) {
-    return ((pageEvent.pageIndex === 0) ? pageEvent.pageIndex : (pageEvent.pageIndex) * pageEvent.pageSize );
-  }
-
-  paginationTo(pageEvent:PageEvent) {
-    return this.paginationFrom(pageEvent) + this.pageSize;
-  }
      
   loadSpin(Element: any) {
     this.render.addClass(Element, "deactive-spinner");

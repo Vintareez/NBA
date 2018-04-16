@@ -14,6 +14,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class ModalComponent {
 
   position: string = "above";
+  editable: boolean = false;
   
   constructor(private httpService: HttpService,
     public dialogRef: MatDialogRef<ModalComponent>,
@@ -22,6 +23,9 @@ export class ModalComponent {
     
   closeModal(): void {
     this.dialogRef.close();
+  }
+  editModal(){
+    this.editable = !this.editable;
   }
     
   SelectFavorite(data: PlayerData){

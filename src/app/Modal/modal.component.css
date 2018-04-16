@@ -50,3 +50,23 @@ button{
 mat-icon{
     font-size: 20px;
 }
+mat-form-field{
+    width: 40px;
+}
+.NameField{
+    margin-bottom: 10px;
+    margin-top: 1px;
+    text-align: center;
+    width: 160px;
+}
+.TeamNameField{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-align: center;
+    width: 200px;
+}
+.NameEdit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

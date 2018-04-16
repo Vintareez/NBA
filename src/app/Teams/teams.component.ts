@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 import { TeamData } from './teams.data';
 import { HttpService} from '../http.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -11,8 +11,7 @@ import 'rxjs/add/observable/interval';
 @Component({
   selector: 'teams-comp',
   templateUrl: './teams.component.html',
-  styleUrls: ['./teams.component.css'],
-  providers: [HttpService]
+  styleUrls: ['./teams.component.css']
 })
 
 export class TeamsComponent implements OnInit {
@@ -23,6 +22,7 @@ export class TeamsComponent implements OnInit {
   pageEvent: PageEvent;
   mySubscription: Subscription;
   value: number = 0;
+  Progress: boolean = false;
   
   constructor (private httpService: HttpService, private router: Router,
     private render: Renderer2){
@@ -33,9 +33,13 @@ export class TeamsComponent implements OnInit {
       ['players', team.abbr]
     );
   }
+  
   SubProgress(){
     this.mySubscription = Observable.interval(6).subscribe((progvalue:number) => {
-      if(progvalue<=100) { this.value = progvalue } 
+      if(progvalue<=100) {
+        this.value = progvalue
+        this.Progress = this.httpService.getProgress();
+      } 
      else { this.mySubscription.unsubscribe()}
      });
   }

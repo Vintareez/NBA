@@ -9,8 +9,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent} from '@angular/mate
 @Component({
   selector: 'favorite-comp',
   templateUrl: './favorite.component.html',
-  styleUrls: ['../Players/players.component.css'],
-  providers: [HttpService]
+  styleUrls: ['../Players/players.component.css']
 })
 
 export class FavoriteComponent implements OnInit {

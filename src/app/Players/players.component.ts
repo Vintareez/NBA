@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, ElementRef, Renderer2, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Renderer2, EventEmitter, Output, Inject } from '@angular/core';
 import { PlayerData } from './players.data';
 import { HttpService } from '../http.service';
 import { ModalComponent } from '../Modal/modal.component';
 import { ActivatedRoute} from '@angular/router';
+import { MyInterceptor } from '../interceptor';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
@@ -15,8 +16,7 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'players-comp',
   templateUrl: './players.component.html',
-  styleUrls: ['./players.component.css'],
-  providers: [HttpService]
+  styleUrls: ['./players.component.css']
 })
 
 export class PlayersComponent implements OnInit {
@@ -29,6 +29,7 @@ export class PlayersComponent implements OnInit {
   value: number = 0;
   mode = "Determinate";
   mySubscription : Subscription;
+  Progress : boolean = false;
   
 
 
@@ -39,10 +40,13 @@ export class PlayersComponent implements OnInit {
   loadSpin(Element: any) {
     this.render.addClass(Element, "deactive-spinner");
   }
-
+  
   SubProgress(){
     this.mySubscription = Observable.interval(15).subscribe((progvalue:number) => {
-      if(progvalue<=100) { this.value = progvalue } 
+      if(progvalue<=100) {
+         this.value = progvalue;
+         this.Progress = this.httpService.getProgress(); 
+      } 
      else { this.mySubscription.unsubscribe()}
      });
   }
